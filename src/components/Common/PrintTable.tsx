@@ -35,7 +35,6 @@ interface GenericTableProps {
     value: string | undefined,
     rowIndex: number,
   ) => React.ReactNode;
-  rowClassName?: (row: TableRowType, rowIndex: number) => string | undefined;
 }
 
 export default function PrintTable({
@@ -45,7 +44,6 @@ export default function PrintTable({
   classNameCell,
   cellConfig,
   renderCell,
-  rowClassName,
 }: GenericTableProps) {
   const { t } = useTranslation();
 
@@ -92,7 +90,6 @@ export default function PrintTable({
                 className={cn(
                   "bg-transparent hover:bg-transparent divide-x divide-gray-200",
                   className,
-                  rowClassName?.(row, index),
                 )}
               >
                 {headers.map(({ key }) => (
